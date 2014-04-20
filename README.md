@@ -1,0 +1,3 @@
+# Documentation
+
+Mindy framework documentation
