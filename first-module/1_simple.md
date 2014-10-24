@@ -7,6 +7,7 @@
 
 Далее, в этой папке создадим файл модуля **FurnitureModule.php** следующего содержания:
 
+```php
 	<?php
 
 	namespace Modules\Furniture;
@@ -16,14 +17,18 @@
 	class FurnitureModule extends Module
 	{
 	}
+```
 
 Структура нашего модуля такова:
 
+```
 	Furniture
 	- FurnitureModule.php
+```
 
 Для того, чтобы сказать Mindy о том, что наш модуль включен, необходимо добавить название модуля в блок **modules** файла настроек **settings.php**:
 
+```php
 	<?php
 	return [
 		...
@@ -32,7 +37,8 @@
 			'Furniture'
 		]		
 		...		
-	]; 
+	];
+```
 
 ## Модель
 
