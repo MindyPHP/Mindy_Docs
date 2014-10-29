@@ -64,12 +64,12 @@ use Mindy\Orm\Model;
 
 class Furniture extends Model
 {
-    	public static function getFields() 
-    	{
-        	return [
-        
-        	];
-    	}
+	public static function getFields() 
+	{
+		return [
+
+		];
+	}
 }
 ```
 
@@ -89,20 +89,20 @@ use Mindy\Orm\Fields\DecimalField;
 
 class Furniture extends Model
 {
-    	public static function getFields() 
-    	{
-        	return [
-        		'name' => [
-	                	'class' => CharField::className(),
-	                	'required' => true
-            		],
-            		'price' => [
-	                	'class' => DecimalField::className(),
-	                	'precision' => 10,
-	                	'scale' => 2
-           		]
-        	];
-    	}
+	public static function getFields() 
+	{
+		return [
+			'name' => [
+				'class' => CharField::className(),
+				'required' => true
+			],
+			'price' => [
+				'class' => DecimalField::className(),
+				'precision' => 10,
+				'scale' => 2
+			]
+		];
+	}
 }
 ```
 
@@ -118,26 +118,26 @@ use Mindy\Orm\Fields\DecimalField;
 
 class Furniture extends Model
 {
-    	public static function getFields() 
-    	{
-        	return [
-        		'name' => [
-	                	'class' => CharField::className(),
-	                	'required' => true
-	            	],
-	            	'price' => [
-	                	'class' => DecimalField::className(),
-	                	'precision' => 10,
-	                	'scale' => 2
-	           	]
-        	];
-    	}
-    
-    	public function __toString() 
-    	{
-        	return $this->name;
-    	}
-    }
+	public static function getFields() 
+	{
+		return [
+			'name' => [
+				'class' => CharField::className(),
+				'required' => true
+			],
+			'price' => [
+				'class' => DecimalField::className(),
+				'precision' => 10,
+				'scale' => 2
+			]
+		];
+	}
+
+	public function __toString() 
+	{
+		return $this->name;
+	}
+}
 ```
 
 Теперь, если попробовать привести экземпляр модели к строковому виду:
@@ -194,10 +194,10 @@ use Modules\Furniture\Models\Furniture;
 
 class FurnitureAdmin extends ModelAdmin
 {
-    	public function getModel()
-    	{
-        	return new Furniture;
-    	}
+	public function getModel()
+	{
+		return new Furniture;
+	}
 }
 ```
 В методе **getModel()** указана модель, управление которой и будет осуществлятся из администраторской панели.
@@ -223,18 +223,18 @@ use Mindy\Base\Module;
 
 class FurnitureModule extends Module
 {
-    	public function getMenu()
-    	{
-        	return [
-	            	'name' => $this->getName(),
-	            	'items' => [
-	                	[
-		                    	'name' => self::t('Furniture'),
-		                    	'adminClass' => 'FurnitureAdmin',
-	                	],
-	            	]
-        	];
-    	}
+	public function getMenu()
+	{
+		return [
+			'name' => $this->getName(),
+			'items' => [
+				[
+					'name' => self::t('Furniture'),
+					'adminClass' => 'FurnitureAdmin',
+				],
+			]
+		];
+	}
 }
 ```
 
@@ -297,10 +297,10 @@ use Modules\Core\Controllers\CoreController;
 
 class FurnitureController extends CoreController
 {
-    	public function actionList()
-    	{
-        
-    	}
+	public function actionList()
+	{
+	
+	}
 }
 ```
 
@@ -330,13 +330,13 @@ use Modules\Furniture\Models\Furniture;
 
 class FurnitureController extends CoreController
 {
-    	public function actionList()
-    	{
-        	$furniture = Furniture::objects()->all();
-        	echo $this->render('furniture/list.html', [
-            		'furniture' => $furniture
-        	]);
-    	}
+	public function actionList()
+	{
+		$furniture = Furniture::objects()->all();
+		echo $this->render('furniture/list.html', [
+			'furniture' => $furniture
+		]);
+	}
 }
 ```
 
@@ -364,10 +364,10 @@ Furniture
 <?php
 
 return [
-    	'/list' => [
-        	'name' => 'list',
-        	'callback' => '\Modules\Furniture\Controllers\FurnitureController:list',
-    	],
+	'/list' => [
+		'name' => 'list',
+		'callback' => '\Modules\Furniture\Controllers\FurnitureController:list',
+	],
 ];
 ```
 
@@ -386,7 +386,9 @@ return [
 	...
 ]
 ```
-	
+
+Обратим внимание на второй входящий параметр в конструктор класса **Patterns** - это неймспейс (в нашем случае **furniture**). Он пригодится нам впоследствии для построения url-адресов.
+
 Теперь, при обращени по url */furniture/list* будет отрабатывать **actionList()** из **FurnitureController**. 
 
 Подробнее про систему роутинга в Mindy можно прочитать тут: [Роутинг в Mindy](#TODO).
@@ -430,9 +432,9 @@ Furniture
 {% extends "base.html" %}
 
 {% block content %}
-    {% for item in furniture %}
-	Наименование: {{ item.name }}, Цена: {{ item.price }} руб. <br/>
-    {% endfor %}
+	{% for item in furniture %}
+		Наименование: {{ item.name }}, Цена: {{ item.price }} руб. <br/>
+	{% endfor %}
 {% endblock %}
 ```
 
