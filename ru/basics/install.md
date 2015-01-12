@@ -11,7 +11,7 @@ cd /home/user/project # переходим в директорию с проек
 git clone git@github.com/Studio107/Mindy.git . # Клонируем репозиторий в текущую папку
 sh ./install.sh # Устанавливаем основные модули системы
 cd app # Переходим в директорию app
-composer install # Устанавливаем зависимости системы
+composer install --no-dev # Устанавливаем зависимости системы
 
 cd ../www/static_admin # Переходим в директорию static_admin
 npm install # Устанавливаем зависимости npm
