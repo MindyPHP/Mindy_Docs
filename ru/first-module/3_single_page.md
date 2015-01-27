@@ -111,7 +111,7 @@ Furniture
 {% block content %}
     {% for item in furniture %}
         Наименование: {{ item.name }}, Цена: {{ item.price }} руб.
-        <a href="{% url 'furniture.view' item.pk %}">Подробнее</a>
+        <a href="{% url 'furniture:view' item.pk %}">Подробнее</a>
         <br/>
     {% endfor %}
 
@@ -160,7 +160,7 @@ class Furniture extends Model
 
     public function getAbsoluteUrl()
     {
-        return $this->reverse('furniture.view', ['pk' => $this->pk]);
+        return $this->reverse('furniture:view', ['pk' => $this->pk]);
     }
 }
 ```
