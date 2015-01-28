@@ -10,7 +10,7 @@ mv composer.phar /usr/local/bin/composer**
 
 ```bash
 cd /home/user/project # переходим в директорию с проектом
-git clone git@github.com/Studio107/Mindy.git . # Клонируем репозиторий в текущую папку
+git clone git@github.com:studio107/Mindy.git . # Клонируем репозиторий в текущую папку
 sh ./install.sh # Устанавливаем основные модули системы
 cd app # Переходим в директорию app
 composer install --no-dev # Устанавливаем зависимости системы
