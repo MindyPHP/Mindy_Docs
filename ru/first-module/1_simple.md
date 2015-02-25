@@ -194,6 +194,11 @@ use Modules\Furniture\Models\Furniture;
 
 class FurnitureAdmin extends ModelAdmin
 {
+	public function getColumns()
+	{
+		return ['name'];
+	}
+	
 	public function getModel()
 	{
 		return new Furniture;
@@ -201,6 +206,9 @@ class FurnitureAdmin extends ModelAdmin
 }
 ```
 В методе **getModel()** указана модель, управление которой и будет осуществлятся из администраторской панели.
+
+В методе **getColumns()** указаны колонки, которые нужно отображать при выводе списка объектов.
+
 
 Структура модуля такова:
 
